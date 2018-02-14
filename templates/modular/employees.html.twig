@@ -1,0 +1,30 @@
+<div id="employees" class="section-features text-center">
+    <div class="container">
+        <div class="row">
+            <h3>{{ page.title }}</h3>
+            {{page.content}}
+            <div class="features-wrapper">
+                {% for employee in page.header.employees %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-block">
+                                {% if employee.avatar %}
+                                    <img src="{{ page.media.images[employee.avatar].url }}" alt="Avatar" class="img-responsive-custom"> 
+                                {% endif %}
+                                {% if employee.name %}
+                                    <h6 class="card-title">{{ employee.name }}</h6>
+                                {% endif %}
+                                {% if employee.occupation %}
+                                    <p class="card-subtitle text-muted">{{employee.occupation}}</p>
+                                {% endif %}
+                                {% if employee.description %}
+                                    <p class="card-text">{{employee.description}}</p>
+                                {% endif %}
+                        </div>
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
